@@ -13,7 +13,7 @@ var bio = {
     },
     "welcomeMessage": "lorem ipsum dolor sit amet etc etc etc",
     "skills": ["awesomeness", "js", "html", "CSS"],
-    "bioPic": "images/fry.jpg"
+    "biopic": "images/fry.jpg"
 };
 
 var work = {
@@ -23,7 +23,7 @@ var work = {
         "title": "GTC-TL",
         "dates": "Sep 2016-Dec 2016",
         "description": "translated those courses: 1. Ancient Philosophy: Aristotle and His Successors·Universals and Particulars·Matter, Form, and Change·Nature;2. Understanding Memory: Explaining the Psychology of Memory through Movies·Lecture; 3: Memory's Everyday Function·Lecture 12: Tell Me a Story About You - Film: Slumdog Millionaire3. Data Visualization·SRT 4.2.1. Visualization System Design"
-    }]
+    }] //only one job
 };
 
 
@@ -33,7 +33,7 @@ var projects = {
         "dates": "2016",
         "description": "using javascript, HTML and CSS to simulate the simple tic tac toe game",
         "images": ["images/tic.png","images/tic.png"]
-    }]
+    }] // only one projects
 };
 
 var education = {
@@ -42,22 +42,22 @@ var education = {
         "location": "Baoding Hebei China",
         "degree": "BA",
         "majors": ["environment"],
-        "dates": 2013,
+        "dates": "2013",
         "url": "http://example.com"
     }],
     "onlineCourses": [{
             "title": "Font-end Development",
             "school": "Udacity",
-            "dates": 2017,
+            "dates": "2017",
             "url": "http://example.com"
         },
         {
             "title": "Font-end Development",
             "school": "Free Code Camp",
-            "dates": 2016,
+            "dates": "2016",
             "url": "http://example.com"
         }
-    ]
+    ] // one school and two online courses
 };
 
 /*
@@ -65,29 +65,23 @@ using:
 1. for loop
 2. function
 3. encapsulation
-
-TO-DO:
-2. map
+4. map
  */
 
 bio.display = function() {
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
     $("#header").prepend(formattedRole);
-    $("#header").prepend(formattedName);
+    $("#header").prepend(formattedName); // because name is in front of role
 
-    var formattedmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-    $("#topContacts").append(formattedmobile);
-    var formattedemail = HTMLemail.replace("%data%", bio.contacts.email);
-    $("#topContacts").append(formattedemail);
+    var formattedmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);    
+    var formattedemail = HTMLemail.replace("%data%", bio.contacts.email);  
     var formattedgithub = HTMLgithub.replace("%data%", bio.contacts.github);
-    $("#topContacts").append(formattedgithub);
     var formattedtwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-    $("#topContacts").append(formattedtwitter);
     var formattedlocation = HTMLlocation.replace("%data%", bio.contacts.location);
-    $("#topContacts").append(formattedlocation);
+   	$("#topContacts, #footerContacts").append(formattedmobile, formattedemail, formattedgithub, formattedtwitter, formattedlocation); // put information in the contacts and footer at the same time
 
-    var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
+    var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
     $("#topContacts").after(formattedPic);
     var formattedMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     $("#header").append(formattedMsg);
@@ -113,7 +107,7 @@ work.display = function() {
         $(".work-entry:last").append(formattedEmployerTitle);
         $(".work-entry:last").append(formattedDates);
         $(".work-entry:last").append(formattedLocation);
-        $(".work-entry:last").append(formattedDescription);
+        $(".work-entry:last").append(formattedDescription); // making sure it locats in the last data line
     }
 };
 
@@ -145,7 +139,7 @@ education.display = function(){
         var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
         var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
         var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
-        var formattedNameDegree = formattedName+formattedDegree;
+        var formattedNameDegree = formattedName+formattedDegree; // another way of combine data
         $(".education-entry:last").append(formattedNameDegree);
         $(".education-entry:last").append(formattedDates);
         $(".education-entry:last").append(formattedLocation);
