@@ -14,7 +14,7 @@ var bio = {
     "welcomeMessage": "lorem ipsum dolor sit amet etc etc etc",
     "skills": ["awesomeness", "js", "html", "CSS"],
     "bioPic": "images/fry.jpg"
-}
+};
 
 var work = {
     "jobs": [{
@@ -24,7 +24,7 @@ var work = {
         "dates": "Sep 2016-Dec 2016",
         "description": "translated those courses: 1. Ancient Philosophy: Aristotle and His Successors·Universals and Particulars·Matter, Form, and Change·Nature;2. Understanding Memory: Explaining the Psychology of Memory through Movies·Lecture; 3: Memory's Everyday Function·Lecture 12: Tell Me a Story About You - Film: Slumdog Millionaire3. Data Visualization·SRT 4.2.1. Visualization System Design"
     }]
-}
+};
 
 
 var projects = {
@@ -34,7 +34,7 @@ var projects = {
         "description": "using javascript, HTML and CSS to simulate the simple tic tac toe game",
         "images": ["images/tic.png","images/tic.png"]
     }]
-}
+};
 
 var education = {
     "schools": [{
@@ -58,7 +58,7 @@ var education = {
             "url": "http://example.com"
         }
     ]
-}
+};
 
 /*
 using:
@@ -97,7 +97,7 @@ bio.display = function() {
         var formattedSkill = HTMLskills.replace("%data%", bio.skills[myskills]);
         $("#skills").append(formattedSkill);
     }
-}
+};
 
 bio.display();
 
@@ -115,7 +115,7 @@ work.display = function() {
         $(".work-entry:last").append(formattedLocation);
         $(".work-entry:last").append(formattedDescription);
     }
-}
+};
 
 work.display();
 
@@ -133,7 +133,7 @@ projects.display = function(){
 	        $(".project-entry:last").append(formattedImage);
     	}
     }
-}
+};
 
 projects.display();
 
@@ -156,14 +156,14 @@ education.display = function(){
         $(".online-entry").after(HTMLschoolStart);
         var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title);
         var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[onlineCourse].school);
-        var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse].dates);
+        var formattedDatesedu = HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse].dates);
         var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[onlineCourse].url);
-        var formattedTitleSchool = formattedTitle+formattedSchool
+        var formattedTitleSchool = formattedTitle+formattedSchool;
         $(".education-entry:last").append(formattedTitleSchool);
-        $(".education-entry:last").append(formattedDates);
+        $(".education-entry:last").append(formattedDatesedu);
         $(".education-entry:last").append(formattedURL);
     }
-}
+};
 
 education.display();
 
